@@ -1,0 +1,25 @@
+h1. Drinking Conversation
+
+This is an example Rails 3 application which shows you how to use "Conversation":http://github.com/dwilkie/conversation to have stateful conversations
+
+This example is a virtual waiter application which offers a user a drink then responds differently depending on the users response.
+
+h2. Installation
+
+<pre>
+git clone git://github.com/dwilkie/drinking.git
+bundle install
+rake db:migrate
+</pre>
+
+h2. Running the features using Cucumber
+
+<pre>cucumber features</pre>
+
+h2. Running the spec
+
+<pre>rspec ./spec/models/drinking_conversation_spec.rb -c</pre>
+
+Read through the features/drinking_conversation.feature to see what is happening
+
+Copyright (c) 2010 David Wilkie, released under the MIT license
