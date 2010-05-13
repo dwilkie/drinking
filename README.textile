@@ -11,6 +11,7 @@ git clone git://github.com/dwilkie/drinking.git
 cd drinking
 bundle install
 rake db:migrate
+rake db:test:clone
 </pre>
 
 h2. Running the features using Cucumber
