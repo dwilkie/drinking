@@ -1,6 +1,6 @@
-h1. Drinking Conversation
+# Drinking Conversation
 
-This is an example Rails 3 application which shows you how to use "Conversation":http://github.com/dwilkie/conversation to have stateful conversations
+This is an example Rails 3 application which shows you how to use [Conversation](http://github.com/dwilkie/conversation) to have stateful conversations.
 
 This example is a virtual waiter application which offers a user a drink then responds differently depending on the users response.
 
@@ -101,15 +101,15 @@ Now let's play in the console:
      >
 </pre>
 
-The magic happens inside the IncomingTextMessageObserver. When calling Conversation.find_or_create_with("08614166112", "yes"), Conversation by default looks for any Conversations with "08614166112" that are not "finished" within the last 24 hours. If it finds one it will return the subclass of Conversation based off the topic. In this case it returns an instance of DrinkingConversation. move_along! is then called on DrinkingConversation which has the state: "offered_drink" and it calls say on the conversation with "I suggest Beer". Say then does whatever you told it to in config/initializers/conversation.rb. In this case we told it to create a new OutgoingTextMessage to whoever we are having the conversation with and send the message.
+The magic happens inside the `IncomingTextMessageObserver`. When calling `Conversation.find_or_create_with("08614166112", "yes")`, Conversation by default looks for any Conversations with "08614166112" that are not "finished" within the last 24 hours. If it finds one it will return the subclass of Conversation based off the topic. In this case it returns an instance of `DrinkingConversation`. `move_along!` is then called on `DrinkingConversation` which has the state: "offered_drink" and it calls `say` on the conversation with "I suggest Beer". `say` then does whatever you told it to in `config/initializers/conversation.rb`. In this case we told it to create a new `OutgoingTextMessage` to whoever we are having the conversation with and send the message.
 
 Conversations don't have to be over text message as shown in this example, they could be over email, IM or whatever you want.
 
-Head back to the "Conversation":http://github.com/dwilkie/conversation for more info on configuring it.
+Head back to [Conversation](http://github.com/dwilkie/conversation) for more info on configuring it.
 
 If you want to you can install this sample app and run the features and specs.
 
-h2. Installation
+## Installation
 
 <pre>
 git clone git://github.com/dwilkie/drinking.git
@@ -119,12 +119,12 @@ rake db:migrate
 rake db:test:clone
 </pre>
 
-h2. Running the features using Cucumber
+## Running the features using Cucumber
 
-<pre>cucumber features</pre>
+`cucumber features`
 
-h2. Running the spec
+## Running the spec
 
-<pre>rspec ./spec/models/drinking_conversation_spec.rb -c</pre>
+`rspec -c ./spec/models/drinking_conversation_spec.rb`
 
 Copyright (c) 2010 David Wilkie, released under the MIT license
