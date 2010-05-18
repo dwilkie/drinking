@@ -6,7 +6,7 @@ This example is a virtual waiter application which offers a user a drink then re
 
 Let's say you want to send a user a text message asking them if they would like a drink. Depending on their response you would reply differently. You can handle this situation by using Conversation. Here's an example:
 
-</pre>
+<pre>
   class DrinkingConversation < Conversation
     state_machine :state do
       event :offer_drink do
