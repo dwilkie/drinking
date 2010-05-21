@@ -2,7 +2,7 @@
 
 This is an example Rails 3 application which shows you how to use [Conversation](http://github.com/dwilkie/conversation) to have stateful conversations.
 
-This example is a virtual waiter application which offers a user a drink then responds differently depending on the users response.
+This example is a virtual waiter application which offers a user a drink then responds differently depending on their response.
 
 Let's say you want to send a user a text message asking them if they would like a drink. Depending on their response you would reply differently. You can handle this situation by using Conversation. Here's an example:
 
@@ -77,28 +77,28 @@ Now let's play in the console:
 
 <pre>
   conversation = Conversation.new(:with => "08614166112", :topic => "drinking")
-  => #<Conversation topic: "drinking", with: "08614166112",:state => "new">
+  => #&lt;Conversation topic: "drinking", with: "08614166112",:state => "new"&gt;
   conversation.details
-  => #<DrinkingConversation topic: "drinking", with: "08614166112", :state => "new">
+  => #&lt;DrinkingConversation topic: "drinking", with: "08614166112", :state => "new"&gt;
   conversation.details.move_along!
   OutgoingTextMessage.last
-  => #<OutgoingTextMessage
+  => #&lt;OutgoingTextMessage
        to: "08614166112",
        message: "Would you like a drink?",
        sent: "true"
-     >
+     &gt;
   # some time has passed...
   IncomingTextMessage.last
-  => #<IncomingTextMessage
+  => #&lt;IncomingTextMessage
        message: "yes",
        number: "08614166112"
-      >
+      &gt;
   OutgoingTextMessage.last
-  => #<OutgoingTextMessage
+  => #&lt;OutgoingTextMessage
        to: "08614166112",
        message: "I suggest Beer",
        sent: "true"
-     >
+     &gt;
 </pre>
 
 The magic happens inside the `IncomingTextMessageObserver`. When calling `Conversation.find_or_create_with("08614166112", "yes")`, Conversation by default looks for any Conversations with "08614166112" that are not "finished" within the last 24 hours. If it finds one it will return the subclass of Conversation based off the topic. In this case it returns an instance of `DrinkingConversation`. `move_along!` is then called on `DrinkingConversation` which has the state: "offered_drink" and it calls `say` on the conversation with "I suggest Beer". `say` then does whatever you told it to in `config/initializers/conversation.rb`. In this case we told it to create a new `OutgoingTextMessage` to whoever we are having the conversation with and send the message.
