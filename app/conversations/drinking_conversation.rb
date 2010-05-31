@@ -1,7 +1,7 @@
 class DrinkingConversation < Conversation
   state_machine :state do
     event :offer_drink do
-      transition :new => :offered_drink
+      transition nil => :offered_drink
     end
     
     event :finish do
@@ -9,10 +9,10 @@ class DrinkingConversation < Conversation
     end
   end
 
-  def move_along!(message=nil)
+  def move_along(message=nil)
     case state
 
-    when "new"
+    when nil
       say "Would you like a drink?"
       offer_drink
 
@@ -29,9 +29,8 @@ class DrinkingConversation < Conversation
       else
         say "I suggest Scotch"
       end
-    finish
+      finish
     end
-    super(message)
   end
 end
 

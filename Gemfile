@@ -14,7 +14,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'capistrano'
 
 # Bundle the extra gems:
-gem "conversation",    :git => 'git://github.com/dwilkie/conversation'
+gem "conversation",    :git => 'git://github.com/dwilkie/conversational'
 gem "state_machine",   :git => 'git://github.com/pluginaweek/state_machine.git'
 gem "mail"
 

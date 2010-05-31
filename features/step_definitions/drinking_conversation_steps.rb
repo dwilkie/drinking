@@ -1,10 +1,10 @@
 When /^"([^\"]*)" replies with "([^\"]*)"$/ do |with, summary|
   conversation = Conversation.with(with).last
-  conversation.details.move_along!(summary) if conversation
+  conversation.details.move_along(summary) if conversation
 end
 
 When /^I move #{capture_model} along(?: with: "([^\"]*)")?$/ do |name, message|
-  model!(name).move_along!(message)
+  model!(name).move_along(message)
 end
 
 Then /^"([^\"]*)" should (not )?be notified with "([^\"]*)" via (\w+)/ do |to, notify, summary, via|
