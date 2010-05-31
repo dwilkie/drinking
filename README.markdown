@@ -1,3 +1,8 @@
+Installation todo
+rails g conversational:migration
+rake db:migrate
+rake db:test:clone
+
 # Drinking Conversation
 
 This is an example Rails 3 application which shows you how to use [Conversation](http://github.com/dwilkie/conversation) to have stateful conversations.
