@@ -14,13 +14,12 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'capistrano'
 
 # Bundle the extra gems:
-gem "conversation",    :git => 'git://github.com/dwilkie/conversational'
-gem "state_machine",   :git => 'git://github.com/pluginaweek/state_machine.git'
+gem "conversational",    :git => 'git://github.com/dwilkie/conversational'
+gem "state_machine",     :git => 'git://github.com/pluginaweek/state_machine.git'
 gem "mail"
 
 # Bundle gems for certain environments:
 group :test do
-  gem 'ruby-debug19'
   gem 'test-unit'
   gem 'factory_girl',     :git => 'git://github.com/thoughtbot/factory_girl.git', :branch => 'rails3'
   gem 'capybara',         :git => 'git://github.com/jnicklas/capybara.git'
